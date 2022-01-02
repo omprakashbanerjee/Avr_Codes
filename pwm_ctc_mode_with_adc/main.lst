@@ -1,0 +1,144 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	pwm_init
+  18               	pwm_init:
+  19               	.LFB7:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8DE1      		ldi r24,lo8(29)
+  25 0002 83BF      		out 83-32,r24
+  26               	.LM3:
+  27 0004 87B3      		in r24,55-32
+  28 0006 8960      		ori r24,lo8(9)
+  29 0008 87BB      		out 55-32,r24
+  30               	.LM4:
+  31 000a 89B7      		in r24,89-32
+  32 000c 8260      		ori r24,lo8(2)
+  33 000e 89BF      		out 89-32,r24
+  34               	.LM5:
+  35 0010 83E6      		ldi r24,lo8(99)
+  36 0012 8CBF      		out 92-32,r24
+  37               	/* epilogue start */
+  38               	.LM6:
+  39 0014 0895      		ret
+  40               	.LFE7:
+  42               	.global	main
+  44               	main:
+  45               	.LFB6:
+  46               	.LM7:
+  47               	/* prologue: function */
+  48               	/* frame size = 0 */
+  49               	.LM8:
+  50               	/* #APP */
+  51               	 ;  21 "main.c" 1
+  52 0016 7894      		sei
+  53               	 ;  0 "" 2
+  54               	.LM9:
+  55               	/* #NOAPP */
+  56 0018 3E9A      		sbi 39-32,6
+  57               	.LM10:
+  58 001a 86B1      		in r24,38-32
+  59 001c 8B6A      		ori r24,lo8(-85)
+  60 001e 86B9      		out 38-32,r24
+  61               	.LM11:
+  62 0020 0E94 0000 		call pwm_init
+  63               	.LM12:
+  64 0024 369A      		sbi 38-32,6
+  65               	.L4:
+  66 0026 00C0      		rjmp .L4
+  67               	.LFE6:
+  69               	.global	__vector_14
+  71               	__vector_14:
+  72               	.LFB8:
+  73               	.LM13:
+  74 0028 1F92      		push __zero_reg__
+  75 002a 0F92      		push r0
+  76 002c 0FB6      		in r0,__SREG__
+  77 002e 0F92      		push r0
+  78 0030 1124      		clr __zero_reg__
+  79 0032 8F93      		push r24
+  80 0034 9F93      		push r25
+  81               	/* prologue: Signal */
+  82               	/* frame size = 0 */
+  83               	.LM14:
+  84 0036 84B1      		in r24,36-32
+  85 0038 95B1      		in r25,(36)+1-32
+  86 003a 9093 0000 		sts (ADC_val)+1,r25
+  87 003e 8093 0000 		sts ADC_val,r24
+  88               	.LM15:
+  89 0042 9695      		lsr r25
+  90 0044 8795      		ror r24
+  91 0046 9695      		lsr r25
+  92 0048 8795      		ror r24
+  93 004a 8093 0000 		sts duty,r24
+  94               	.LM16:
+  95 004e 369A      		sbi 38-32,6
+  96               	/* epilogue start */
+  97               	.LM17:
+  98 0050 9F91      		pop r25
+  99 0052 8F91      		pop r24
+ 100 0054 0F90      		pop r0
+ 101 0056 0FBE      		out __SREG__,r0
+ 102 0058 0F90      		pop r0
+ 103 005a 1F90      		pop __zero_reg__
+ 104 005c 1895      		reti
+ 105               	.LFE8:
+ 107               	.global	__vector_19
+ 109               	__vector_19:
+ 110               	.LFB9:
+ 111               	.LM18:
+ 112 005e 1F92      		push __zero_reg__
+ 113 0060 0F92      		push r0
+ 114 0062 0FB6      		in r0,__SREG__
+ 115 0064 0F92      		push r0
+ 116 0066 1124      		clr __zero_reg__
+ 117 0068 8F93      		push r24
+ 118 006a 9F93      		push r25
+ 119               	/* prologue: Signal */
+ 120               	/* frame size = 0 */
+ 121               	.LM19:
+ 122 006c 8091 0000 		lds r24,duty
+ 123 0070 8CBF      		out 92-32,r24
+ 124               	.LM20:
+ 125 0072 88B3      		in r24,56-32
+ 126 0074 91E0      		ldi r25,lo8(1)
+ 127 0076 8927      		eor r24,r25
+ 128 0078 88BB      		out 56-32,r24
+ 129               	/* epilogue start */
+ 130               	.LM21:
+ 131 007a 9F91      		pop r25
+ 132 007c 8F91      		pop r24
+ 133 007e 0F90      		pop r0
+ 134 0080 0FBE      		out __SREG__,r0
+ 135 0082 0F90      		pop r0
+ 136 0084 1F90      		pop __zero_reg__
+ 137 0086 1895      		reti
+ 138               	.LFE9:
+ 140               		.comm ADC_val,2,1
+ 141               		.comm duty,1,1
+ 190               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccQGsPqQ.s:2      *ABS*:0000003f __SREG__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccQGsPqQ.s:3      *ABS*:0000003e __SP_H__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccQGsPqQ.s:4      *ABS*:0000003d __SP_L__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccQGsPqQ.s:5      *ABS*:00000034 __CCP__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccQGsPqQ.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccQGsPqQ.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccQGsPqQ.s:18     .text:00000000 pwm_init
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccQGsPqQ.s:44     .text:00000016 main
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccQGsPqQ.s:71     .text:00000028 __vector_14
+                            *COM*:00000002 ADC_val
+                            *COM*:00000001 duty
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccQGsPqQ.s:109    .text:0000005e __vector_19
+
+UNDEFINED SYMBOLS
+__do_clear_bss

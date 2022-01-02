@@ -1,0 +1,136 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB2:
+  20               	.LM1:
+  21 0000 0F93      		push r16
+  22 0002 1F93      		push r17
+  23               	/* prologue: function */
+  24               	/* frame size = 0 */
+  25               	.LM2:
+  26 0004 8FEF      		ldi r24,lo8(-1)
+  27 0006 81BB      		out 49-32,r24
+  28               	.LM3:
+  29 0008 12BE      		out 82-32,__zero_reg__
+  30               	.LM4:
+  31 000a 83E0      		ldi r24,lo8(3)
+  32 000c 83BF      		out 83-32,r24
+  33               	.LM5:
+  34 000e 1DBC      		out (76)+1-32,__zero_reg__
+  35 0010 1CBC      		out 76-32,__zero_reg__
+  36               	.LM6:
+  37 0012 8EBD      		out 78-32,r24
+  38               	.LM7:
+  39 0014 14BC      		out 68-32,__zero_reg__
+  40               	.LM8:
+  41 0016 85BD      		out 69-32,r24
+  42 0018 60E0      		ldi r22,lo8(0)
+  43 001a 70E0      		ldi r23,hi8(0)
+  44               	.LVL0:
+  45 001c 40E0      		ldi r20,lo8(0)
+  46 001e 50E0      		ldi r21,hi8(0)
+  47               	.LVL1:
+  48 0020 20E0      		ldi r18,lo8(0)
+  49 0022 30E0      		ldi r19,hi8(0)
+  50               	.LVL2:
+  51               	.LM9:
+  52 0024 91E0      		ldi r25,lo8(1)
+  53               	.LM10:
+  54 0026 E1E0      		ldi r30,lo8(1)
+  55 0028 F0E0      		ldi r31,hi8(1)
+  56               	.LM11:
+  57 002a 04E0      		ldi r16,lo8(4)
+  58               	.LM12:
+  59 002c A0E4      		ldi r26,lo8(64)
+  60               	.LM13:
+  61 002e 10E2      		ldi r17,lo8(32)
+  62               	.LM14:
+  63 0030 B0E1      		ldi r27,lo8(16)
+  64               	.L12:
+  65               	.LM15:
+  66 0032 08B6      		in __tmp_reg__,88-32
+  67 0034 00FE      		sbrs __tmp_reg__,0
+  68 0036 00C0      		rjmp .L12
+  69               	.LM16:
+  70 0038 92BF      		out 82-32,r25
+  71               	.LM17:
+  72 003a 98BF      		out 88-32,r25
+  73               	.LM18:
+  74 003c 6F5F      		subi r22,lo8(-(1))
+  75 003e 7F4F      		sbci r23,hi8(-(1))
+  76               	.LM19:
+  77 0040 6A30      		cpi r22,10
+  78 0042 7105      		cpc r23,__zero_reg__
+  79 0044 00F0      		brlo .L8
+  80               	.LM20:
+  81 0046 82B3      		in r24,50-32
+  82 0048 8B27      		eor r24,r27
+  83 004a 82BB      		out 50-32,r24
+  84 004c 60E0      		ldi r22,lo8(0)
+  85 004e 70E0      		ldi r23,hi8(0)
+  86               	.L8:
+  87               	.LM21:
+  88 0050 08B6      		in __tmp_reg__,88-32
+  89 0052 02FE      		sbrs __tmp_reg__,2
+  90 0054 00C0      		rjmp .L8
+  91               	.LM22:
+  92 0056 FDBD      		out (76)+1-32,r31
+  93 0058 ECBD      		out 76-32,r30
+  94               	.LM23:
+  95 005a 08BF      		out 88-32,r16
+  96               	.LM24:
+  97 005c 4F5F      		subi r20,lo8(-(1))
+  98 005e 5F4F      		sbci r21,hi8(-(1))
+  99               	.LM25:
+ 100 0060 4431      		cpi r20,20
+ 101 0062 5105      		cpc r21,__zero_reg__
+ 102 0064 00F0      		brlo .L7
+ 103               	.LM26:
+ 104 0066 82B3      		in r24,50-32
+ 105 0068 8127      		eor r24,r17
+ 106 006a 82BB      		out 50-32,r24
+ 107 006c 40E0      		ldi r20,lo8(0)
+ 108 006e 50E0      		ldi r21,hi8(0)
+ 109               	.L7:
+ 110               	.LM27:
+ 111 0070 08B6      		in __tmp_reg__,88-32
+ 112 0072 06FE      		sbrs __tmp_reg__,6
+ 113 0074 00C0      		rjmp .L7
+ 114               	.LM28:
+ 115 0076 94BD      		out 68-32,r25
+ 116               	.LM29:
+ 117 0078 A8BF      		out 88-32,r26
+ 118               	.LM30:
+ 119 007a 2F5F      		subi r18,lo8(-(1))
+ 120 007c 3F4F      		sbci r19,hi8(-(1))
+ 121               	.LM31:
+ 122 007e 2F30      		cpi r18,15
+ 123 0080 3105      		cpc r19,__zero_reg__
+ 124 0082 00F0      		brlo .L12
+ 125               	.LM32:
+ 126 0084 82B3      		in r24,50-32
+ 127 0086 8A27      		eor r24,r26
+ 128 0088 82BB      		out 50-32,r24
+ 129 008a 20E0      		ldi r18,lo8(0)
+ 130 008c 30E0      		ldi r19,hi8(0)
+ 131 008e 00C0      		rjmp .L12
+ 132               	.LFE2:
+ 158               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\OMPRAK~1\AppData\Local\Temp/cc39IYIi.s:2      *ABS*:0000003f __SREG__
+C:\Users\OMPRAK~1\AppData\Local\Temp/cc39IYIi.s:3      *ABS*:0000003e __SP_H__
+C:\Users\OMPRAK~1\AppData\Local\Temp/cc39IYIi.s:4      *ABS*:0000003d __SP_L__
+C:\Users\OMPRAK~1\AppData\Local\Temp/cc39IYIi.s:5      *ABS*:00000034 __CCP__
+C:\Users\OMPRAK~1\AppData\Local\Temp/cc39IYIi.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\OMPRAK~1\AppData\Local\Temp/cc39IYIi.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\OMPRAK~1\AppData\Local\Temp/cc39IYIi.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS

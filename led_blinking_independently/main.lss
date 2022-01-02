@@ -1,0 +1,220 @@
+
+main.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000102  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .debug_aranges 00000020  00000000  00000000  00000156  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  2 .debug_pubnames 0000001b  00000000  00000000  00000176  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   000000ad  00000000  00000000  00000191  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 00000050  00000000  00000000  0000023e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   0000014a  00000000  00000000  0000028e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  00000020  00000000  00000000  000003d8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    00000073  00000000  00000000  000003f8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   8:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  10:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  14:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  18:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  1c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  20:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  24:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  28:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  2c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  30:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  34:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  38:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  3c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  40:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  44:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  48:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  4c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  50:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 36 00 	call	0x6c	; 0x6c <main>
+  64:	0c 94 7f 00 	jmp	0xfe	; 0xfe <_exit>
+
+00000068 <__bad_interrupt>:
+  68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000006c <main>:
+#include<avr/io.h>
+#define LED PD4
+int main(void)
+{
+  6c:	0f 93       	push	r16
+  6e:	1f 93       	push	r17
+	unsigned int Count0=0,Count1=0,Count2=0;
+	DDRD=0xFF;
+  70:	8f ef       	ldi	r24, 0xFF	; 255
+  72:	81 bb       	out	0x11, r24	; 17
+	TCNT0=0x00;
+  74:	12 be       	out	0x32, r1	; 50
+	TCCR0 =(1<<CS00 | 1<<CS01);
+  76:	83 e0       	ldi	r24, 0x03	; 3
+  78:	83 bf       	out	0x33, r24	; 51
+	
+	TCNT1=0x00;
+  7a:	1d bc       	out	0x2d, r1	; 45
+  7c:	1c bc       	out	0x2c, r1	; 44
+	TCCR1B =(1<<CS10 | 1<<CS11);
+  7e:	8e bd       	out	0x2e, r24	; 46
+	
+	TCNT2=0x00;
+  80:	14 bc       	out	0x24, r1	; 36
+	TCCR2 =(1<<CS20 | 1<<CS21);
+  82:	85 bd       	out	0x25, r24	; 37
+  84:	60 e0       	ldi	r22, 0x00	; 0
+  86:	70 e0       	ldi	r23, 0x00	; 0
+  88:	40 e0       	ldi	r20, 0x00	; 0
+  8a:	50 e0       	ldi	r21, 0x00	; 0
+  8c:	20 e0       	ldi	r18, 0x00	; 0
+  8e:	30 e0       	ldi	r19, 0x00	; 0
+	while(1)
+		{
+			while((TIFR & (1<<TOV0))==0);
+			{
+				TCNT0=0x01;
+  90:	91 e0       	ldi	r25, 0x01	; 1
+						Count0=0;
+					}
+		    }
+			while((TIFR & (1<<TOV1))==0);
+			{
+				TCNT1=0x01;
+  92:	e1 e0       	ldi	r30, 0x01	; 1
+  94:	f0 e0       	ldi	r31, 0x00	; 0
+				TIFR=(1<<TOV1);
+  96:	04 e0       	ldi	r16, 0x04	; 4
+		    }
+			
+			while((TIFR & (1<<TOV2))==0);
+			{
+				TCNT2=0x01;
+				TIFR=(1<<TOV2);
+  98:	a0 e4       	ldi	r26, 0x40	; 64
+				TCNT1=0x01;
+				TIFR=(1<<TOV1);
+				Count1++;
+					if(Count1>=20)
+					{
+						PORTD^=(1<<PD5);
+  9a:	10 e2       	ldi	r17, 0x20	; 32
+				TCNT0=0x01;
+				TIFR=(1<<TOV0);
+				Count0++;
+				if(Count0>=1000)
+					{
+						PORTD^=(1<<PD4);
+  9c:	b0 e1       	ldi	r27, 0x10	; 16
+	
+	TCNT2=0x00;
+	TCCR2 =(1<<CS20 | 1<<CS21);
+	while(1)
+		{
+			while((TIFR & (1<<TOV0))==0);
+  9e:	08 b6       	in	r0, 0x38	; 56
+  a0:	00 fe       	sbrs	r0, 0
+  a2:	fd cf       	rjmp	.-6      	; 0x9e <main+0x32>
+			{
+				TCNT0=0x01;
+  a4:	92 bf       	out	0x32, r25	; 50
+				TIFR=(1<<TOV0);
+  a6:	98 bf       	out	0x38, r25	; 56
+				Count0++;
+  a8:	6f 5f       	subi	r22, 0xFF	; 255
+  aa:	7f 4f       	sbci	r23, 0xFF	; 255
+				if(Count0>=1000)
+  ac:	83 e0       	ldi	r24, 0x03	; 3
+  ae:	68 3e       	cpi	r22, 0xE8	; 232
+  b0:	78 07       	cpc	r23, r24
+  b2:	28 f0       	brcs	.+10     	; 0xbe <main+0x52>
+					{
+						PORTD^=(1<<PD4);
+  b4:	82 b3       	in	r24, 0x12	; 18
+  b6:	8b 27       	eor	r24, r27
+  b8:	82 bb       	out	0x12, r24	; 18
+  ba:	60 e0       	ldi	r22, 0x00	; 0
+  bc:	70 e0       	ldi	r23, 0x00	; 0
+						Count0=0;
+					}
+		    }
+			while((TIFR & (1<<TOV1))==0);
+  be:	08 b6       	in	r0, 0x38	; 56
+  c0:	02 fe       	sbrs	r0, 2
+  c2:	fd cf       	rjmp	.-6      	; 0xbe <main+0x52>
+			{
+				TCNT1=0x01;
+  c4:	fd bd       	out	0x2d, r31	; 45
+  c6:	ec bd       	out	0x2c, r30	; 44
+				TIFR=(1<<TOV1);
+  c8:	08 bf       	out	0x38, r16	; 56
+				Count1++;
+  ca:	4f 5f       	subi	r20, 0xFF	; 255
+  cc:	5f 4f       	sbci	r21, 0xFF	; 255
+					if(Count1>=20)
+  ce:	44 31       	cpi	r20, 0x14	; 20
+  d0:	51 05       	cpc	r21, r1
+  d2:	28 f0       	brcs	.+10     	; 0xde <main+0x72>
+					{
+						PORTD^=(1<<PD5);
+  d4:	82 b3       	in	r24, 0x12	; 18
+  d6:	81 27       	eor	r24, r17
+  d8:	82 bb       	out	0x12, r24	; 18
+  da:	40 e0       	ldi	r20, 0x00	; 0
+  dc:	50 e0       	ldi	r21, 0x00	; 0
+						Count1=0;
+					}
+		    }
+			
+			while((TIFR & (1<<TOV2))==0);
+  de:	08 b6       	in	r0, 0x38	; 56
+  e0:	06 fe       	sbrs	r0, 6
+  e2:	fd cf       	rjmp	.-6      	; 0xde <main+0x72>
+			{
+				TCNT2=0x01;
+  e4:	94 bd       	out	0x24, r25	; 36
+				TIFR=(1<<TOV2);
+  e6:	a8 bf       	out	0x38, r26	; 56
+				Count2++;
+  e8:	2f 5f       	subi	r18, 0xFF	; 255
+  ea:	3f 4f       	sbci	r19, 0xFF	; 255
+				if(Count2>=15)
+  ec:	2f 30       	cpi	r18, 0x0F	; 15
+  ee:	31 05       	cpc	r19, r1
+  f0:	b0 f2       	brcs	.-84     	; 0x9e <main+0x32>
+					{
+						PORTD^=(1<<PD6);
+  f2:	82 b3       	in	r24, 0x12	; 18
+  f4:	8a 27       	eor	r24, r26
+  f6:	82 bb       	out	0x12, r24	; 18
+  f8:	20 e0       	ldi	r18, 0x00	; 0
+  fa:	30 e0       	ldi	r19, 0x00	; 0
+  fc:	d0 cf       	rjmp	.-96     	; 0x9e <main+0x32>
+
+000000fe <_exit>:
+  fe:	f8 94       	cli
+
+00000100 <__stop_program>:
+ 100:	ff cf       	rjmp	.-2      	; 0x100 <__stop_program>

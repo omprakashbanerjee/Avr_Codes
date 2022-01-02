@@ -1,0 +1,200 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	USART_putstring
+  18               	USART_putstring:
+  19               	.LFB7:
+  20               	.LM1:
+  21               	.LVL0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24 0000 FC01      		movw r30,r24
+  25 0002 00C0      		rjmp .L2
+  26               	.LVL1:
+  27               	.L5:
+  28               	.LBB14:
+  29               	.LBB15:
+  30               	.LM2:
+  31 0004 5D9B      		sbis 43-32,5
+  32 0006 00C0      		rjmp .L5
+  33               	.LM3:
+  34 0008 8CB9      		out 44-32,r24
+  35               	.LBE15:
+  36               	.LBE14:
+  37               	.LM4:
+  38 000a 3196      		adiw r30,1
+  39               	.LVL2:
+  40               	.L2:
+  41               	.LM5:
+  42 000c 8081      		ld r24,Z
+  43 000e 8823      		tst r24
+  44 0010 01F4      		brne .L5
+  45               	/* epilogue start */
+  46               	.LM6:
+  47 0012 0895      		ret
+  48               	.LFE7:
+  50               	.global	USART_Init
+  52               	USART_Init:
+  53               	.LFB8:
+  54               	.LM7:
+  55               	/* prologue: function */
+  56               	/* frame size = 0 */
+  57               	.LM8:
+  58 0014 10BC      		out 64-32,__zero_reg__
+  59               	.LM9:
+  60 0016 87E6      		ldi r24,lo8(103)
+  61 0018 89B9      		out 41-32,r24
+  62               	.LM10:
+  63 001a 8AB1      		in r24,42-32
+  64 001c 8861      		ori r24,lo8(24)
+  65 001e 8AB9      		out 42-32,r24
+  66               	.LM11:
+  67 0020 80B5      		in r24,64-32
+  68 0022 8E68      		ori r24,lo8(-114)
+  69 0024 80BD      		out 64-32,r24
+  70               	/* epilogue start */
+  71               	.LM12:
+  72 0026 0895      		ret
+  73               	.LFE8:
+  75               	.global	main
+  77               	main:
+  78               	.LFB6:
+  79               	.LM13:
+  80 0028 1F93      		push r17
+  81 002a CF93      		push r28
+  82 002c DF93      		push r29
+  83               	/* prologue: function */
+  84               	/* frame size = 0 */
+  85               	.LM14:
+  86 002e B99A      		sbi 55-32,1
+  87               	.LM15:
+  88 0030 BE98      		cbi 55-32,6
+  89               	.LM16:
+  90 0032 C698      		cbi 56-32,6
+  91               	.LM17:
+  92 0034 0E94 0000 		call USART_Init
+  93               	.LBB16:
+  94               	.LBB17:
+  95               	.LBB18:
+  96               	.LBB19:
+  97               	.LM18:
+  98 0038 C0E9      		ldi r28,lo8(400)
+  99 003a D1E0      		ldi r29,hi8(400)
+ 100               	.LBE19:
+ 101               	.LBE18:
+ 102               	.LBE17:
+ 103               	.LBE16:
+ 104               	.LM19:
+ 105 003c 12E0      		ldi r17,lo8(2)
+ 106               	.LVL3:
+ 107               	.L16:
+ 108               	.LM20:
+ 109 003e B69B      		sbis 54-32,6
+ 110 0040 00C0      		rjmp .L16
+ 111 0042 84EF      		ldi r24,lo8(500)
+ 112 0044 91E0      		ldi r25,hi8(500)
+ 113               	.L11:
+ 114               	.LBB23:
+ 115               	.LBB22:
+ 116               	.LBB21:
+ 117               	.LBB20:
+ 118               	.LM21:
+ 119 0046 FE01      		movw r30,r28
+ 120               	/* #APP */
+ 121               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 122 0048 3197      		1: sbiw r30,1
+ 123 004a 01F4      		brne 1b
+ 124               	 ;  0 "" 2
+ 125               	/* #NOAPP */
+ 126               	.LBE20:
+ 127               	.LBE21:
+ 128               	.LM22:
+ 129 004c 0197      		sbiw r24,1
+ 130               	.LM23:
+ 131 004e 01F4      		brne .L11
+ 132               	.LBE22:
+ 133               	.LBE23:
+ 134               	.LM24:
+ 135 0050 B699      		sbic 54-32,6
+ 136 0052 00C0      		rjmp .L16
+ 137               	.LM25:
+ 138 0054 88B3      		in r24,56-32
+ 139               	.LVL4:
+ 140 0056 8127      		eor r24,r17
+ 141 0058 88BB      		out 56-32,r24
+ 142               	.LM26:
+ 143 005a 80E0      		ldi r24,lo8(data)
+ 144 005c 90E0      		ldi r25,hi8(data)
+ 145 005e 0E94 0000 		call USART_putstring
+ 146               	.LVL5:
+ 147 0062 00C0      		rjmp .L16
+ 148               	.LFE6:
+ 150               	.global	USART_Transmit
+ 152               	USART_Transmit:
+ 153               	.LFB9:
+ 154               	.LM27:
+ 155               	/* prologue: function */
+ 156               	/* frame size = 0 */
+ 157               	.LVL6:
+ 158               	.L18:
+ 159               	.LM28:
+ 160 0064 5D9B      		sbis 43-32,5
+ 161 0066 00C0      		rjmp .L18
+ 162               	.LM29:
+ 163 0068 8CB9      		out 44-32,r24
+ 164               	/* epilogue start */
+ 165               	.LM30:
+ 166 006a 0895      		ret
+ 167               	.LFE9:
+ 169               	.global	USART_Receive
+ 171               	USART_Receive:
+ 172               	.LFB10:
+ 173               	.LM31:
+ 174               	/* prologue: function */
+ 175               	/* frame size = 0 */
+ 176               	.L22:
+ 177               	.LM32:
+ 178 006c 5F9B      		sbis 43-32,7
+ 179 006e 00C0      		rjmp .L22
+ 180               	.LM33:
+ 181 0070 8CB1      		in r24,44-32
+ 182               	/* epilogue start */
+ 183               	.LM34:
+ 184 0072 0895      		ret
+ 185               	.LFE10:
+ 187               	.global	i
+ 188               	.global	i
+ 189               		.section .bss
+ 192               	i:
+ 193 0000 00        		.skip 1,0
+ 194               	.global	data
+ 195               		.data
+ 198               	data:
+ 199 0000 5052 4553 		.string	"PRESSED \n\r\n"
+ 199      5345 4420 
+ 199      0A0D 0A00 
+ 256               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\OMPRAK~1\AppData\Local\Temp/cctcuXRq.s:2      *ABS*:0000003f __SREG__
+C:\Users\OMPRAK~1\AppData\Local\Temp/cctcuXRq.s:3      *ABS*:0000003e __SP_H__
+C:\Users\OMPRAK~1\AppData\Local\Temp/cctcuXRq.s:4      *ABS*:0000003d __SP_L__
+C:\Users\OMPRAK~1\AppData\Local\Temp/cctcuXRq.s:5      *ABS*:00000034 __CCP__
+C:\Users\OMPRAK~1\AppData\Local\Temp/cctcuXRq.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\OMPRAK~1\AppData\Local\Temp/cctcuXRq.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\OMPRAK~1\AppData\Local\Temp/cctcuXRq.s:18     .text:00000000 USART_putstring
+C:\Users\OMPRAK~1\AppData\Local\Temp/cctcuXRq.s:52     .text:00000014 USART_Init
+C:\Users\OMPRAK~1\AppData\Local\Temp/cctcuXRq.s:77     .text:00000028 main
+C:\Users\OMPRAK~1\AppData\Local\Temp/cctcuXRq.s:198    .data:00000000 data
+C:\Users\OMPRAK~1\AppData\Local\Temp/cctcuXRq.s:152    .text:00000064 USART_Transmit
+C:\Users\OMPRAK~1\AppData\Local\Temp/cctcuXRq.s:171    .text:0000006c USART_Receive
+C:\Users\OMPRAK~1\AppData\Local\Temp/cctcuXRq.s:192    .bss:00000000 i
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

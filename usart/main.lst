@@ -1,0 +1,162 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	USART_Init
+  18               	USART_Init:
+  19               	.LFB7:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 10BC      		out 64-32,__zero_reg__
+  25               	.LM3:
+  26 0002 87E6      		ldi r24,lo8(103)
+  27 0004 89B9      		out 41-32,r24
+  28               	.LM4:
+  29 0006 8AB1      		in r24,42-32
+  30 0008 8861      		ori r24,lo8(24)
+  31 000a 8AB9      		out 42-32,r24
+  32               	.LM5:
+  33 000c 80B5      		in r24,64-32
+  34 000e 8E68      		ori r24,lo8(-114)
+  35 0010 80BD      		out 64-32,r24
+  36               	/* epilogue start */
+  37               	.LM6:
+  38 0012 0895      		ret
+  39               	.LFE7:
+  41               	.global	main
+  43               	main:
+  44               	.LFB6:
+  45               	.LM7:
+  46               	/* prologue: function */
+  47               	/* frame size = 0 */
+  48               	.LM8:
+  49 0014 B99A      		sbi 55-32,1
+  50               	.LM9:
+  51 0016 BE98      		cbi 55-32,6
+  52               	.LM10:
+  53 0018 C698      		cbi 56-32,6
+  54               	.LM11:
+  55 001a 0E94 0000 		call USART_Init
+  56               	.LM12:
+  57 001e 4091 0000 		lds r20,data
+  58               	.LBB14:
+  59               	.LBB15:
+  60               	.LBB16:
+  61               	.LBB17:
+  62               	.LM13:
+  63 0022 20E9      		ldi r18,lo8(400)
+  64 0024 31E0      		ldi r19,hi8(400)
+  65               	.LBE17:
+  66               	.LBE16:
+  67               	.LBE15:
+  68               	.LBE14:
+  69               	.LM14:
+  70 0026 52E0      		ldi r21,lo8(2)
+  71               	.LVL0:
+  72               	.L12:
+  73               	.LM15:
+  74 0028 B69B      		sbis 54-32,6
+  75 002a 00C0      		rjmp .L12
+  76 002c 84EF      		ldi r24,lo8(500)
+  77 002e 91E0      		ldi r25,hi8(500)
+  78               	.L5:
+  79               	.LBB21:
+  80               	.LBB20:
+  81               	.LBB19:
+  82               	.LBB18:
+  83               	.LM16:
+  84 0030 F901      		movw r30,r18
+  85               	/* #APP */
+  86               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  87 0032 3197      		1: sbiw r30,1
+  88 0034 01F4      		brne 1b
+  89               	 ;  0 "" 2
+  90               	/* #NOAPP */
+  91               	.LBE18:
+  92               	.LBE19:
+  93               	.LM17:
+  94 0036 0197      		sbiw r24,1
+  95               	.LM18:
+  96 0038 01F4      		brne .L5
+  97               	.LBE20:
+  98               	.LBE21:
+  99               	.LM19:
+ 100 003a B699      		sbic 54-32,6
+ 101 003c 00C0      		rjmp .L12
+ 102               	.LM20:
+ 103 003e 88B3      		in r24,56-32
+ 104               	.LVL1:
+ 105 0040 8527      		eor r24,r21
+ 106 0042 88BB      		out 56-32,r24
+ 107               	.L6:
+ 108               	.LBB22:
+ 109               	.LBB23:
+ 110               	.LM21:
+ 111 0044 5D9B      		sbis 43-32,5
+ 112 0046 00C0      		rjmp .L6
+ 113               	.LM22:
+ 114 0048 4CB9      		out 44-32,r20
+ 115 004a 00C0      		rjmp .L12
+ 116               	.LBE23:
+ 117               	.LBE22:
+ 118               	.LFE6:
+ 120               	.global	USART_Transmit
+ 122               	USART_Transmit:
+ 123               	.LFB8:
+ 124               	.LM23:
+ 125               	/* prologue: function */
+ 126               	/* frame size = 0 */
+ 127               	.LVL2:
+ 128               	.L14:
+ 129               	.LM24:
+ 130 004c 5D9B      		sbis 43-32,5
+ 131 004e 00C0      		rjmp .L14
+ 132               	.LM25:
+ 133 0050 8CB9      		out 44-32,r24
+ 134               	/* epilogue start */
+ 135               	.LM26:
+ 136 0052 0895      		ret
+ 137               	.LFE8:
+ 139               	.global	USART_Receive
+ 141               	USART_Receive:
+ 142               	.LFB9:
+ 143               	.LM27:
+ 144               	/* prologue: function */
+ 145               	/* frame size = 0 */
+ 146               	.L18:
+ 147               	.LM28:
+ 148 0054 5F9B      		sbis 43-32,7
+ 149 0056 00C0      		rjmp .L18
+ 150               	.LM29:
+ 151 0058 8CB1      		in r24,44-32
+ 152               	/* epilogue start */
+ 153               	.LM30:
+ 154 005a 0895      		ret
+ 155               	.LFE9:
+ 157               	.global	data
+ 158               		.data
+ 161               	data:
+ 162 0000 50        		.byte	80
+ 211               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccs1Bagl.s:2      *ABS*:0000003f __SREG__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccs1Bagl.s:3      *ABS*:0000003e __SP_H__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccs1Bagl.s:4      *ABS*:0000003d __SP_L__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccs1Bagl.s:5      *ABS*:00000034 __CCP__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccs1Bagl.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccs1Bagl.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccs1Bagl.s:18     .text:00000000 USART_Init
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccs1Bagl.s:43     .text:00000014 main
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccs1Bagl.s:161    .data:00000000 data
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccs1Bagl.s:122    .text:0000004c USART_Transmit
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccs1Bagl.s:141    .text:00000054 USART_Receive
+
+UNDEFINED SYMBOLS
+__do_copy_data

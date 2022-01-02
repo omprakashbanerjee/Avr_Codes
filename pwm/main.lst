@@ -1,0 +1,119 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	PWM_init
+  18               	PWM_init:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8AE6      		ldi r24,lo8(106)
+  25 0002 83BF      		out 83-32,r24
+  26               	.LM3:
+  27 0004 BB9A      		sbi 55-32,3
+  28               	/* epilogue start */
+  29               	.LM4:
+  30 0006 0895      		ret
+  31               	.LFE6:
+  33               	.global	main
+  35               	main:
+  36               	.LFB7:
+  37               	.LM5:
+  38               	/* prologue: function */
+  39               	/* frame size = 0 */
+  40               	.LBB20:
+  41               	.LBB21:
+  42               	.LM6:
+  43 0008 8AE6      		ldi r24,lo8(106)
+  44 000a 83BF      		out 83-32,r24
+  45               	.LM7:
+  46 000c BB9A      		sbi 55-32,3
+  47 000e 2AE0      		ldi r18,lo8(10)
+  48               	.LVL0:
+  49               	.LBE21:
+  50               	.LBE20:
+  51               	.LBB22:
+  52               	.LBB23:
+  53               	.LBB24:
+  54               	.LBB25:
+  55               	.LM8:
+  56 0010 40E0      		ldi r20,lo8(32000)
+  57 0012 5DE7      		ldi r21,hi8(32000)
+  58 0014 00C0      		rjmp .L9
+  59               	.LVL1:
+  60               	.L5:
+  61               	.LBE25:
+  62               	.LBE24:
+  63               	.LBE23:
+  64               	.LBE22:
+  65               	.LM9:
+  66 0016 2CBF      		out 92-32,r18
+  67               	.LBB29:
+  68               	.LBB28:
+  69               	.LBB27:
+  70               	.LBB26:
+  71               	.LM10:
+  72 0018 CA01      		movw r24,r20
+  73               	.LVL2:
+  74               	/* #APP */
+  75               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  76 001a 0197      		1: sbiw r24,1
+  77 001c 01F4      		brne 1b
+  78               	 ;  0 "" 2
+  79               	/* #NOAPP */
+  80               	.LBE26:
+  81               	.LBE27:
+  82               	.LBE28:
+  83               	.LBE29:
+  84               	.LM11:
+  85 001e 2F5F      		subi r18,lo8(-(1))
+  86               	.LVL3:
+  87               	.L9:
+  88 0020 2A3F      		cpi r18,lo8(-6)
+  89 0022 00F0      		brlo .L5
+  90 0024 2AEF      		ldi r18,lo8(-6)
+  91               	.L6:
+  92               	.LM12:
+  93 0026 2CBF      		out 92-32,r18
+  94               	.LBB30:
+  95               	.LBB31:
+  96               	.LBB32:
+  97               	.LBB33:
+  98               	.LM13:
+  99 0028 CA01      		movw r24,r20
+ 100               	.LVL4:
+ 101               	/* #APP */
+ 102               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 103 002a 0197      		1: sbiw r24,1
+ 104 002c 01F4      		brne 1b
+ 105               	 ;  0 "" 2
+ 106               	/* #NOAPP */
+ 107               	.LBE33:
+ 108               	.LBE32:
+ 109               	.LBE31:
+ 110               	.LBE30:
+ 111               	.LM14:
+ 112 002e 2150      		subi r18,lo8(-(-1))
+ 113 0030 2A30      		cpi r18,lo8(10)
+ 114 0032 01F4      		brne .L6
+ 115 0034 00C0      		rjmp .L9
+ 116               	.LFE7:
+ 150               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\OMPRAK~1\AppData\Local\Temp/cc45yYAI.s:2      *ABS*:0000003f __SREG__
+C:\Users\OMPRAK~1\AppData\Local\Temp/cc45yYAI.s:3      *ABS*:0000003e __SP_H__
+C:\Users\OMPRAK~1\AppData\Local\Temp/cc45yYAI.s:4      *ABS*:0000003d __SP_L__
+C:\Users\OMPRAK~1\AppData\Local\Temp/cc45yYAI.s:5      *ABS*:00000034 __CCP__
+C:\Users\OMPRAK~1\AppData\Local\Temp/cc45yYAI.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\OMPRAK~1\AppData\Local\Temp/cc45yYAI.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\OMPRAK~1\AppData\Local\Temp/cc45yYAI.s:18     .text:00000000 PWM_init
+C:\Users\OMPRAK~1\AppData\Local\Temp/cc45yYAI.s:35     .text:00000008 main
+
+NO UNDEFINED SYMBOLS

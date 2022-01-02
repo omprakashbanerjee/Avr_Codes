@@ -1,0 +1,116 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	__vector_18
+  18               	__vector_18:
+  19               	.LFB6:
+  20               	.LM1:
+  21 0000 1F92      		push __zero_reg__
+  22 0002 0F92      		push r0
+  23 0004 0FB6      		in r0,__SREG__
+  24 0006 0F92      		push r0
+  25 0008 1124      		clr __zero_reg__
+  26 000a 2F93      		push r18
+  27 000c 3F93      		push r19
+  28 000e 8F93      		push r24
+  29 0010 9F93      		push r25
+  30 0012 EF93      		push r30
+  31 0014 FF93      		push r31
+  32               	/* prologue: Signal */
+  33               	/* frame size = 0 */
+  34               	.LM2:
+  35 0016 85B3      		in r24,53-32
+  36 0018 8095      		com r24
+  37 001a 85BB      		out 53-32,r24
+  38 001c 84EF      		ldi r24,lo8(500)
+  39 001e 91E0      		ldi r25,hi8(500)
+  40               	.LVL0:
+  41               	.LBB12:
+  42               	.LBB13:
+  43               	.LBB14:
+  44               	.LBB15:
+  45               	.LM3:
+  46 0020 20E9      		ldi r18,lo8(400)
+  47 0022 31E0      		ldi r19,hi8(400)
+  48               	.L2:
+  49 0024 F901      		movw r30,r18
+  50               	.LVL1:
+  51               	/* #APP */
+  52               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  53 0026 3197      		1: sbiw r30,1
+  54 0028 01F4      		brne 1b
+  55               	 ;  0 "" 2
+  56               	/* #NOAPP */
+  57               	.LBE15:
+  58               	.LBE14:
+  59               	.LM4:
+  60 002a 0197      		sbiw r24,1
+  61               	.LM5:
+  62 002c 01F4      		brne .L2
+  63               	/* epilogue start */
+  64               	.LBE13:
+  65               	.LBE12:
+  66               	.LM6:
+  67 002e FF91      		pop r31
+  68 0030 EF91      		pop r30
+  69               	.LVL2:
+  70 0032 9F91      		pop r25
+  71 0034 8F91      		pop r24
+  72               	.LVL3:
+  73 0036 3F91      		pop r19
+  74 0038 2F91      		pop r18
+  75 003a 0F90      		pop r0
+  76 003c 0FBE      		out __SREG__,r0
+  77 003e 0F90      		pop r0
+  78 0040 1F90      		pop __zero_reg__
+  79 0042 1895      		reti
+  80               	.LFE6:
+  82               	.global	main
+  84               	main:
+  85               	.LFB7:
+  86               	.LM7:
+  87               	/* prologue: function */
+  88               	/* frame size = 0 */
+  89               	.LM8:
+  90 0044 87E0      		ldi r24,lo8(7)
+  91 0046 84BB      		out 52-32,r24
+  92               	.LM9:
+  93 0048 15BA      		out 53-32,__zero_reg__
+  94               	.LM10:
+  95 004a 17BA      		out 55-32,__zero_reg__
+  96               	.LM11:
+  97 004c 84E0      		ldi r24,lo8(4)
+  98 004e 88BB      		out 56-32,r24
+  99               	.LM12:
+ 100 0050 80E2      		ldi r24,lo8(32)
+ 101 0052 8BBF      		out 91-32,r24
+ 102               	.LM13:
+ 103 0054 80E4      		ldi r24,lo8(64)
+ 104 0056 84BF      		out 84-32,r24
+ 105               	.LM14:
+ 106               	/* #APP */
+ 107               	 ;  21 "main.c" 1
+ 108 0058 7894      		sei
+ 109               	 ;  0 "" 2
+ 110               	/* #NOAPP */
+ 111               	.L6:
+ 112 005a 00C0      		rjmp .L6
+ 113               	.LFE7:
+ 147               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccg9N2p8.s:2      *ABS*:0000003f __SREG__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccg9N2p8.s:3      *ABS*:0000003e __SP_H__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccg9N2p8.s:4      *ABS*:0000003d __SP_L__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccg9N2p8.s:5      *ABS*:00000034 __CCP__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccg9N2p8.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccg9N2p8.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccg9N2p8.s:18     .text:00000000 __vector_18
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccg9N2p8.s:84     .text:00000044 main
+
+NO UNDEFINED SYMBOLS

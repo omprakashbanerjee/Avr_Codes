@@ -1,0 +1,98 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 87B3      		in r24,55-32
+  25 0002 8360      		ori r24,lo8(3)
+  26 0004 87BB      		out 55-32,r24
+  27               	.LM3:
+  28 0006 BE98      		cbi 55-32,6
+  29               	.LM4:
+  30 0008 C69A      		sbi 56-32,6
+  31               	.LM5:
+  32 000a 88B3      		in r24,56-32
+  33 000c 91E0      		ldi r25,lo8(1)
+  34 000e 8927      		eor r24,r25
+  35 0010 88BB      		out 56-32,r24
+  36 0012 20E0      		ldi r18,lo8(0)
+  37 0014 30E0      		ldi r19,hi8(0)
+  38               	.LVL0:
+  39 0016 40E0      		ldi r20,lo8(0)
+  40 0018 50E0      		ldi r21,hi8(0)
+  41               	.LVL1:
+  42 001a 80E0      		ldi r24,lo8(0)
+  43 001c 90E0      		ldi r25,hi8(0)
+  44               	.LVL2:
+  45               	.LM6:
+  46 001e 71E0      		ldi r23,lo8(1)
+  47               	.LM7:
+  48 0020 62E0      		ldi r22,lo8(2)
+  49 0022 00C0      		rjmp .L8
+  50               	.L4:
+  51               	.LM8:
+  52 0024 40E0      		ldi r20,lo8(0)
+  53 0026 50E0      		ldi r21,hi8(0)
+  54 0028 80E0      		ldi r24,lo8(0)
+  55 002a 90E0      		ldi r25,hi8(0)
+  56               	.L8:
+  57               	.LM9:
+  58 002c B699      		sbic 54-32,6
+  59 002e 00C0      		rjmp .L3
+  60               	.LM10:
+  61 0030 2F5F      		subi r18,lo8(-(1))
+  62 0032 3F4F      		sbci r19,hi8(-(1))
+  63               	.LM11:
+  64 0034 293C      		cpi r18,201
+  65 0036 3105      		cpc r19,__zero_reg__
+  66 0038 00F0      		brlo .L8
+  67               	.LM12:
+  68 003a 0097      		sbiw r24,0
+  69 003c 01F4      		brne .L8
+  70               	.LM13:
+  71 003e 88B3      		in r24,56-32
+  72               	.LVL3:
+  73 0040 8727      		eor r24,r23
+  74 0042 88BB      		out 56-32,r24
+  75               	.LM14:
+  76 0044 88B3      		in r24,56-32
+  77 0046 8627      		eor r24,r22
+  78 0048 88BB      		out 56-32,r24
+  79 004a 20E0      		ldi r18,lo8(0)
+  80 004c 30E0      		ldi r19,hi8(0)
+  81 004e 81E0      		ldi r24,lo8(1)
+  82 0050 90E0      		ldi r25,hi8(1)
+  83               	.LVL4:
+  84 0052 00C0      		rjmp .L8
+  85               	.L3:
+  86               	.LM15:
+  87 0054 4F5F      		subi r20,lo8(-(1))
+  88 0056 5F4F      		sbci r21,hi8(-(1))
+  89               	.LM16:
+  90 0058 493C      		cpi r20,201
+  91 005a 5105      		cpc r21,__zero_reg__
+  92 005c 00F4      		brsh .L4
+  93 005e 00C0      		rjmp .L8
+  94               	.LFE6:
+ 120               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccboes9v.s:2      *ABS*:0000003f __SREG__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccboes9v.s:3      *ABS*:0000003e __SP_H__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccboes9v.s:4      *ABS*:0000003d __SP_L__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccboes9v.s:5      *ABS*:00000034 __CCP__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccboes9v.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccboes9v.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccboes9v.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS

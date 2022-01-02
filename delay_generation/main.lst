@@ -1,0 +1,66 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB2:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 8FEF      		ldi r24,lo8(-1)
+  25 0002 81BB      		out 49-32,r24
+  26               	.LM3:
+  27 0004 12BE      		out 82-32,__zero_reg__
+  28               	.LM4:
+  29 0006 85E0      		ldi r24,lo8(5)
+  30 0008 83BF      		out 83-32,r24
+  31 000a 80E0      		ldi r24,lo8(0)
+  32 000c 90E0      		ldi r25,hi8(0)
+  33               	.LVL0:
+  34               	.LM5:
+  35 000e 21E0      		ldi r18,lo8(1)
+  36               	.LM6:
+  37 0010 30E1      		ldi r19,lo8(16)
+  38               	.L6:
+  39               	.LM7:
+  40 0012 08B6      		in __tmp_reg__,88-32
+  41 0014 00FE      		sbrs __tmp_reg__,0
+  42 0016 00C0      		rjmp .L6
+  43               	.LM8:
+  44 0018 22BF      		out 82-32,r18
+  45               	.LM9:
+  46 001a 28BF      		out 88-32,r18
+  47               	.LM10:
+  48 001c 0196      		adiw r24,1
+  49               	.LM11:
+  50 001e 8630      		cpi r24,6
+  51 0020 9105      		cpc r25,__zero_reg__
+  52 0022 00F0      		brlo .L6
+  53               	.LM12:
+  54 0024 82B3      		in r24,50-32
+  55               	.LVL1:
+  56 0026 8327      		eor r24,r19
+  57 0028 82BB      		out 50-32,r24
+  58 002a 80E0      		ldi r24,lo8(0)
+  59 002c 90E0      		ldi r25,hi8(0)
+  60               	.LVL2:
+  61 002e 00C0      		rjmp .L6
+  62               	.LFE2:
+  88               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccekRIjU.s:2      *ABS*:0000003f __SREG__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccekRIjU.s:3      *ABS*:0000003e __SP_H__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccekRIjU.s:4      *ABS*:0000003d __SP_L__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccekRIjU.s:5      *ABS*:00000034 __CCP__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccekRIjU.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccekRIjU.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccekRIjU.s:18     .text:00000000 main
+
+NO UNDEFINED SYMBOLS

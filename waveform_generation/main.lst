@@ -1,0 +1,96 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LBB4:
+  24               	.LBB5:
+  25               	.LM2:
+  26 0000 8AE1      		ldi r24,lo8(26)
+  27 0002 83BF      		out 83-32,r24
+  28               	.LM3:
+  29 0004 BB9A      		sbi 55-32,3
+  30               	.LM4:
+  31 0006 89B7      		in r24,89-32
+  32 0008 8260      		ori r24,lo8(2)
+  33 000a 89BF      		out 89-32,r24
+  34               	.LBE5:
+  35               	.LBE4:
+  36               	.LM5:
+  37               	/* #APP */
+  38               	 ;  13 "main.c" 1
+  39 000c 7894      		sei
+  40               	 ;  0 "" 2
+  41               	/* #NOAPP */
+  42               	.L2:
+  43 000e 00C0      		rjmp .L2
+  44               	.LFE6:
+  46               	.global	t0_init
+  48               	t0_init:
+  49               	.LFB7:
+  50               	.LM6:
+  51               	/* prologue: function */
+  52               	/* frame size = 0 */
+  53               	.LM7:
+  54 0010 8AE1      		ldi r24,lo8(26)
+  55 0012 83BF      		out 83-32,r24
+  56               	.LM8:
+  57 0014 BB9A      		sbi 55-32,3
+  58               	.LM9:
+  59 0016 89B7      		in r24,89-32
+  60 0018 8260      		ori r24,lo8(2)
+  61 001a 89BF      		out 89-32,r24
+  62               	/* epilogue start */
+  63               	.LM10:
+  64 001c 0895      		ret
+  65               	.LFE7:
+  67               	.global	__vector_19
+  69               	__vector_19:
+  70               	.LFB8:
+  71               	.LM11:
+  72 001e 1F92      		push __zero_reg__
+  73 0020 0F92      		push r0
+  74 0022 0FB6      		in r0,__SREG__
+  75 0024 0F92      		push r0
+  76 0026 1124      		clr __zero_reg__
+  77 0028 8F93      		push r24
+  78               	/* prologue: Signal */
+  79               	/* frame size = 0 */
+  80               	.LM12:
+  81 002a 88E2      		ldi r24,lo8(40)
+  82 002c 8CBF      		out 92-32,r24
+  83               	.LM13:
+  84 002e 81E3      		ldi r24,lo8(49)
+  85 0030 8CBF      		out 92-32,r24
+  86               	/* epilogue start */
+  87               	.LM14:
+  88 0032 8F91      		pop r24
+  89 0034 0F90      		pop r0
+  90 0036 0FBE      		out __SREG__,r0
+  91 0038 0F90      		pop r0
+  92 003a 1F90      		pop __zero_reg__
+  93 003c 1895      		reti
+  94               	.LFE8:
+ 136               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccDVBZZ5.s:2      *ABS*:0000003f __SREG__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccDVBZZ5.s:3      *ABS*:0000003e __SP_H__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccDVBZZ5.s:4      *ABS*:0000003d __SP_L__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccDVBZZ5.s:5      *ABS*:00000034 __CCP__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccDVBZZ5.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccDVBZZ5.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccDVBZZ5.s:18     .text:00000000 main
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccDVBZZ5.s:48     .text:00000010 t0_init
+C:\Users\OMPRAK~1\AppData\Local\Temp/ccDVBZZ5.s:69     .text:0000001e __vector_19
+
+NO UNDEFINED SYMBOLS

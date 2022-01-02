@@ -1,0 +1,174 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	main
+  18               	main:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 87B3      		in r24,55-32
+  25 0002 8067      		ori r24,lo8(112)
+  26 0004 87BB      		out 55-32,r24
+  27               	.LM3:
+  28 0006 BA98      		cbi 55-32,2
+  29               	.LM4:
+  30 0008 81B3      		in r24,49-32
+  31 000a 837F      		andi r24,lo8(-13)
+  32 000c 81BB      		out 49-32,r24
+  33               	.LM5:
+  34 000e 80EE      		ldi r24,lo8(-32)
+  35 0010 8BBF      		out 91-32,r24
+  36               	.LM6:
+  37 0012 83E0      		ldi r24,lo8(3)
+  38 0014 85BF      		out 85-32,r24
+  39               	.LM7:
+  40 0016 8CE0      		ldi r24,lo8(12)
+  41 0018 85BF      		out 85-32,r24
+  42               	.LM8:
+  43 001a 80E4      		ldi r24,lo8(64)
+  44 001c 84BF      		out 84-32,r24
+  45               	.LM9:
+  46               	/* #APP */
+  47               	 ;  19 "main.c" 1
+  48 001e 7894      		sei
+  49               	 ;  0 "" 2
+  50               	.LM10:
+  51               	/* #NOAPP */
+  52 0020 30E2      		ldi r19,lo8(32)
+  53               	.LM11:
+  54 0022 20E4      		ldi r18,lo8(64)
+  55               	.LM12:
+  56 0024 90E1      		ldi r25,lo8(16)
+  57               	.L2:
+  58               	.LM13:
+  59 0026 88B3      		in r24,56-32
+  60 0028 8327      		eor r24,r19
+  61 002a 88BB      		out 56-32,r24
+  62               	.LM14:
+  63 002c 88B3      		in r24,56-32
+  64 002e 8227      		eor r24,r18
+  65 0030 88BB      		out 56-32,r24
+  66               	.LM15:
+  67 0032 88B3      		in r24,56-32
+  68 0034 8927      		eor r24,r25
+  69 0036 88BB      		out 56-32,r24
+  70 0038 00C0      		rjmp .L2
+  71               	.LFE6:
+  73               	.global	f1
+  75               	f1:
+  76               	.LFB7:
+  77               	.LM16:
+  78               	/* prologue: function */
+  79               	/* frame size = 0 */
+  80               	.L5:
+  81               	.LM17:
+  82 003a C498      		cbi 56-32,4
+  83 003c 00C0      		rjmp .L5
+  84               	.LFE7:
+  86               	.global	f2
+  88               	f2:
+  89               	.LFB8:
+  90               	.LM18:
+  91               	/* prologue: function */
+  92               	/* frame size = 0 */
+  93               	.L8:
+  94               	.LM19:
+  95 003e C598      		cbi 56-32,5
+  96 0040 00C0      		rjmp .L8
+  97               	.LFE8:
+  99               	.global	f3
+ 101               	f3:
+ 102               	.LFB9:
+ 103               	.LM20:
+ 104               	/* prologue: function */
+ 105               	/* frame size = 0 */
+ 106               	.L11:
+ 107               	.LM21:
+ 108 0042 C698      		cbi 56-32,6
+ 109 0044 00C0      		rjmp .L11
+ 110               	.LFE9:
+ 112               	.global	__vector_1
+ 114               	__vector_1:
+ 115               	.LFB10:
+ 116               	.LM22:
+ 117 0046 1F92      		push __zero_reg__
+ 118 0048 0F92      		push r0
+ 119 004a 0FB6      		in r0,__SREG__
+ 120 004c 0F92      		push r0
+ 121 004e 1124      		clr __zero_reg__
+ 122               	/* prologue: Signal */
+ 123               	/* frame size = 0 */
+ 124               	.L14:
+ 125               	.LBB8:
+ 126               	.LBB9:
+ 127               	.LM23:
+ 128 0050 C498      		cbi 56-32,4
+ 129 0052 00C0      		rjmp .L14
+ 130               	.LBE9:
+ 131               	.LBE8:
+ 132               	.LFE10:
+ 134               	.global	__vector_2
+ 136               	__vector_2:
+ 137               	.LFB11:
+ 138               	.LM24:
+ 139 0054 1F92      		push __zero_reg__
+ 140 0056 0F92      		push r0
+ 141 0058 0FB6      		in r0,__SREG__
+ 142 005a 0F92      		push r0
+ 143 005c 1124      		clr __zero_reg__
+ 144               	/* prologue: Signal */
+ 145               	/* frame size = 0 */
+ 146               	.L17:
+ 147               	.LBB10:
+ 148               	.LBB11:
+ 149               	.LM25:
+ 150 005e C598      		cbi 56-32,5
+ 151 0060 00C0      		rjmp .L17
+ 152               	.LBE11:
+ 153               	.LBE10:
+ 154               	.LFE11:
+ 156               	.global	__vector_18
+ 158               	__vector_18:
+ 159               	.LFB12:
+ 160               	.LM26:
+ 161 0062 1F92      		push __zero_reg__
+ 162 0064 0F92      		push r0
+ 163 0066 0FB6      		in r0,__SREG__
+ 164 0068 0F92      		push r0
+ 165 006a 1124      		clr __zero_reg__
+ 166               	/* prologue: Signal */
+ 167               	/* frame size = 0 */
+ 168               	.L20:
+ 169               	.LBB12:
+ 170               	.LBB13:
+ 171               	.LM27:
+ 172 006c C698      		cbi 56-32,6
+ 173 006e 00C0      		rjmp .L20
+ 174               	.LBE13:
+ 175               	.LBE12:
+ 176               	.LFE12:
+ 250               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\IECT\AppData\Local\Temp/ccllHZou.s:2      *ABS*:0000003f __SREG__
+C:\Users\IECT\AppData\Local\Temp/ccllHZou.s:3      *ABS*:0000003e __SP_H__
+C:\Users\IECT\AppData\Local\Temp/ccllHZou.s:4      *ABS*:0000003d __SP_L__
+C:\Users\IECT\AppData\Local\Temp/ccllHZou.s:5      *ABS*:00000034 __CCP__
+C:\Users\IECT\AppData\Local\Temp/ccllHZou.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\IECT\AppData\Local\Temp/ccllHZou.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\IECT\AppData\Local\Temp/ccllHZou.s:18     .text:00000000 main
+C:\Users\IECT\AppData\Local\Temp/ccllHZou.s:75     .text:0000003a f1
+C:\Users\IECT\AppData\Local\Temp/ccllHZou.s:88     .text:0000003e f2
+C:\Users\IECT\AppData\Local\Temp/ccllHZou.s:101    .text:00000042 f3
+C:\Users\IECT\AppData\Local\Temp/ccllHZou.s:114    .text:00000046 __vector_1
+C:\Users\IECT\AppData\Local\Temp/ccllHZou.s:136    .text:00000054 __vector_2
+C:\Users\IECT\AppData\Local\Temp/ccllHZou.s:158    .text:00000062 __vector_18
+
+NO UNDEFINED SYMBOLS
